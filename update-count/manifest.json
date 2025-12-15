@@ -5,7 +5,7 @@
   "minNoctaliaVersion": "3.6.0",
   "author": "BukoMoon",
   "license": "GPLv3",
-  "repository": "https://github.com/BukoMoon/noctalia-plugins.git",
+  "repository": "https://github.com/noctalia-dev/noctalia-plugins",
   "description": "Requires: gum. Periodically scans for new updates and displays them. Clicking the widget will open a terminal script to update your packages.",
   "entryPoints": {
     "barWidget": "BarWidget.qml",
