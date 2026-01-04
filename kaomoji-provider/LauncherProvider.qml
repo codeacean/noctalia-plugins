@@ -63,7 +63,7 @@ Item {
 
   // Load database on init
   function init() {
-    console.log("KaomojiProvider: init called, pluginDir:", pluginApi?.pluginDir);
+    Logger.i("KaomojiProvider", "init called, pluginDir:", pluginApi?.pluginDir);
     if (pluginApi && pluginApi.pluginDir && !loading && !loaded) {
       loading = true;
       databaseLoader.path = pluginApi.pluginDir + "/database.json";
@@ -81,12 +81,12 @@ Item {
         root.database = JSON.parse(text());
         root.loaded = true;
         root.loading = false;
-        console.log("KaomojiProvider: Database loaded,", Object.keys(root.database).length, "entries");
+        Logger.i("KaomojiProvider", "Database loaded,", Object.keys(root.database).length, "entries");
         if (root.launcher) {
           root.launcher.updateResults();
         }
       } catch (e) {
-        console.error("KaomojiProvider: Failed to parse database:", e);
+        Logger.e("KaomojiProvider", "Failed to parse database:", e);
         root.loading = false;
       }
     }
