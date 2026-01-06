@@ -16,6 +16,28 @@ Item {
     property string outputPath: ""
     property bool isAvailable: ProgramCheckerService.gpuScreenRecorderAvailable
 
+    IpcHandler {
+        target: "plugin:screen-recorder"
+        
+        function toggle() {
+            if (root.isAvailable) {
+                root.toggleRecording()
+            }
+        }
+
+        function start() {
+            if (root.isAvailable && !root.isRecording && !root.isPending) {
+                root.startRecording()
+            }
+        }
+
+        function stop() {
+            if (root.isRecording || root.isPending) {
+                root.stopRecording()
+            }
+        }
+    }
+
     // Settings shortcuts
     readonly property string directory: pluginApi?.pluginSettings?.directory || ""
     readonly property string filenamePattern: pluginApi?.pluginSettings?.filenamePattern || "recording_yyyyMMdd_HHmmss"

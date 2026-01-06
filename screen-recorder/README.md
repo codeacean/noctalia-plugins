@@ -50,6 +50,21 @@ Configure the plugin through the settings panel:
 - **Show Cursor**: Include mouse cursor in recording
 - **Copy to Clipboard**: Automatically copy file after recording
 
+### IPC Commands
+
+Control the screen recorder via IPC for keybindings or scripts:
+
+```bash
+# Toggle recording on/off
+qs -c noctalia-shell ipc call plugin:screen-recorder toggle
+
+# Explicitly start recording
+qs -c noctalia-shell ipc call plugin:screen-recorder start
+
+# Explicitly stop recording
+qs -c noctalia-shell ipc call plugin:screen-recorder stop
+```
+
 ## Video Codecs
 
 - **H264**: Most compatible, good quality, works everywhere
